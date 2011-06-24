@@ -13,6 +13,12 @@ describe DoomFormatter do
     formatter.generate(10, 0).should match(/-c 10/)
   end
 
+  it 'should round up duration' do
+    formatter.generate(0.00001, 0).should match(/-c 1/)
+    formatter.generate(0.1, 0).should match(/-c 1/)
+    formatter.generate(1.7, 0).should match(/-c 2/)
+  end
+
   it 'should output the generated theseus string' do
     mock_output = mock
     formatter = DoomFormatter.new mock_output

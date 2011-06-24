@@ -13,7 +13,7 @@ class DoomFormatter < RSpec::Core::Formatters::BaseFormatter
   end 
 
   def generate duration, examples
-    "-w #{examples} -c #{duration.to_i == 0 ? (duration * 10).to_i : duration.to_i}"
+    "-w #{examples} -c #{duration.ceil}"
   end
 
 end
