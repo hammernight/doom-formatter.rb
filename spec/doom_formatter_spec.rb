@@ -23,7 +23,7 @@ describe DoomFormatter do
     mock_output = mock
     formatter = DoomFormatter.new mock_output
     mock_output.should_receive(:puts).with("-w 30 -c 10")
-    formatter.dump_summary 10, 30, 0, 0
+    formatter.dump_summary 10, 10, 10, 10
   end
  
 end
