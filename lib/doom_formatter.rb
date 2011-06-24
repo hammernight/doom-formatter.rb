@@ -1,4 +1,4 @@
-require 'rspec/core/formatters/base_text_formatter'
+require 'rspec/core/formatters/base_formatter'
 
 class DoomFormatter < RSpec::Core::Formatters::BaseFormatter
 
@@ -19,13 +19,12 @@ class DoomFormatter < RSpec::Core::Formatters::BaseFormatter
     @count += 1
   end
 
-  def dump_summary duration_time, p2, p3, p4
-    super(duration_time, 0, 0, 0)
-    output.puts generate
+  def dump_summary duration, p2, p3, p4
+    output.puts generate duration
   end 
 
-  def generate
-    "-w #{@count} -c #{@duration}"
+  def generate duration=42
+    "-w #{@count} -c #{duration}"
   end
 
 end

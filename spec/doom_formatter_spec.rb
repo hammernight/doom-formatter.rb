@@ -15,8 +15,7 @@ describe DoomFormatter do
   end
 
   it "should generate the cell size based on the duration" do
-    formatter.dump_summary 10, 0, 0, 0
-    formatter.generate.should match(/-c 10/)
+    formatter.generate(10).should match(/-c 10/)
   end
 
   it 'should output the generated theseus string' do
@@ -30,5 +29,6 @@ describe DoomFormatter do
     mock_output.should_receive(:puts).with("-w 30 -c 10")
     formatter.dump_summary 10, 0, 0, 0
   end
+ 
 end
 
